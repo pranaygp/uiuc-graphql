@@ -5,7 +5,15 @@ async function fetchData(){
   return (await fetch(`${request_url}`).then(r => r.json())).location
 }
 
+function convertTimeRemainingToNumber(machine){
+  return Object.assign({}, machine, { timeRemaining: (machine.timeRemaining || '0').split(' ')[0] })
+}
+
+function roomMapper(room){
+  return Object.assign({}, room, { machines: room.machines.map(convertTimeRemainingToNumber) })
+}
+
 module.exports = {
-  all: async () => (await fetchData()).rooms,
-  room: async args => (await fetchData()).rooms.find(room => room.name == args.room)
+  all: async () => (await fetchData()).rooms.map(roomMapper),
+  room: async args => roomMapper((await fetchData()).rooms.find(room => room.name == args.room))
 }
