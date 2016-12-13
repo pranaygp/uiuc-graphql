@@ -5,6 +5,7 @@ const Dining = require('./resources/dining')
 const Laundry = require('./resources/laundry')
 const EWS = require('./resources/ews')
 const FreeFood = require('./resources/free_food')
+const Calendar = require('./resources/calendar')
 
 
 var schema = buildSchema(`
@@ -13,7 +14,8 @@ var schema = buildSchema(`
     diningHall(hall: String): String,
     laundry: Laundry,
     ews:  EWS,
-    freeFood: FreeFood
+    freeFood: FreeFood,
+    calendar: Calendar
   }
 
   type Laundry {
@@ -42,13 +44,13 @@ var schema = buildSchema(`
     lab(lab: String): EWSLab
   }
 
-  type EWSLab{
+  type EWSLab {
     strlabname: String,
     inusecount: Int,
     machinecount: Int
   }
 
-  type FreeFood{
+  type FreeFood {
     all: [ FreeFoodLocation ]
   }
 
@@ -70,7 +72,24 @@ var schema = buildSchema(`
     abbr: String
   }
 
+  type Calendar {
+    all: [CalendarYear]
+  }
 
+  type CalendarYear {
+    yearRange: String
+    semesters: [CalendarSemester]
+  }
+
+  type CalendarSemester {
+    semester: String,
+    events: [CalendarEvent]
+  }
+
+  type CalendarEvent {
+    title: String,
+    date: String
+  }
 
 `);
 
@@ -80,6 +99,7 @@ var rootValue = {
   , laundry: Laundry
   , ews: EWS
   , freeFood: FreeFood
+  , calendar: Calendar 
 };
 
 
