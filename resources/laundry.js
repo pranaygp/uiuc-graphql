@@ -6,7 +6,7 @@ async function fetchData(){
 }
 
 function convertTimeRemainingToNumber(machine){
-  return Object.assign({}, machine, { timeRemaining: (machine.timeRemaining || '0').split(' ')[0] })
+  return Object.assign({}, machine, { timeRemaining: Number((machine.timeRemaining || 'Unknown').split(' ')[0]) || null })
 }
 
 function roomMapper(room){
