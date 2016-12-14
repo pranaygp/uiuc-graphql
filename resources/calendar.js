@@ -23,13 +23,13 @@ async function fetchData(){
       res[data.yearRange].push( 
         Object.assign({}, data, {
           semester: (data.semester.match(/(Spring|Summer\s+Session\s+\d|Winter|Fall)/ig) || [""])[0].split(' ').filter(Boolean).map(_.capitalize).join(' '),
-          events: _.zip(data._eventTitles, data._eventDates).map(keyVal => ({title: keyVal[0], date: keyVal[1]})),
+          events: _.zip(data._eventTitles, data._eventDates).map(keyVal => ({title: keyVal[0], date: keyVal[1] || null})),
           data: undefined
         })
       )
     })
     .done(() => {
-      resolve(_.map(res, (semesters, yearRange) => ({ yearRange, semesters: semesters.filter(s => s.semester && s.events.length) })))
+      resolve(_.map(res, (semesters, yearRange) => ({ yearRange, semesters: semesters.filter(s => s.events.length) })))
     })
     // .log(console.log.bind(this, "LOG: "))
     // .error(console.log.bind(this, "ERROR: "))
