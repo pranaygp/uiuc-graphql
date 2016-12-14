@@ -10,84 +10,89 @@ const Calendar = require('./resources/calendar')
 
 var schema = buildSchema(`
   type Query {
-    ping: String
-    diningHall(hall: String): String,
-    laundry: Laundry,
-    ews:  EWS,
-    freeFood: FreeFood,
-    calendar: Calendar
+    # Ping the server to check if it's up!
+    ping: String!
+    # All endpoints for the Laundry service
+    laundry: Laundry!,
+    # All endpoints for the EWS service
+    ews:  EWS!,
+    # All endpoints for the freeFood service
+    freeFood: FreeFood!,
+    # All endpoints for the calendar service
+    calendar: Calendar!
   }
 
+  
   type Laundry {
-    all: [ LaundryRoom ],
+    all: [ LaundryRoom! ]!,
     room(room: String!): LaundryRoom,
   }
 
   type LaundryRoom {
-    id: ID,
-    name: String,
-    networked: String,
-    machines: [ LaundryMachine ] 
+    id: ID!,
+    name: String!,
+    networked: String!,
+    machines: [ LaundryMachine! ]! 
   }
 
   type LaundryMachine {            
-    port: Int,
-    label: Int,
-    description: String,
-    status: String,
-    startTime: String,
+    port: Int!,
+    label: String!,
+    description: String!,
+    status: String!,
+    startTime: String!,
     timeRemaining: Int
   }
 
   type EWS {
-    all: [ EWSLab ],
-    lab(lab: String): EWSLab
+    all: [ EWSLab! ]!,
+    lab(lab: String!): EWSLab
   }
 
   type EWSLab {
-    strlabname: String,
-    inusecount: Int,
-    machinecount: Int
+    strlabname: String!,
+    inusecount: Int!,
+    machinecount: Int!
   }
 
   type FreeFood {
-    all: [ FreeFoodLocation ]
+    all: [ FreeFoodLocation! ]!
   }
 
   type FreeFoodLocation {
-    pk: Int,
-    googleTime: String,
-    building: String,
-    counter: Int,
-    displayTime: String,
-    food: String,
-    latLng: String,
-    time: String,
-    link: String,
-    location: String,
-    address: String,
-    eventID: ID,
-    event: String,
-    calID: ID,
-    abbr: String
+    pk: Int!,
+    googleTime: String!,
+    building: String!,
+    counter: Int!,
+    displayTime: String!,
+    food: String!,
+    latLng: String!,
+    time: String!,
+    link: String!,
+    location: String!,
+    address: String!,
+    eventID: ID!,
+    event: String!,
+    calID: ID!,
+    abbr: String!
   }
 
   type Calendar {
-    all: [CalendarYear]
+    all: [CalendarYear!]!
   }
 
   type CalendarYear {
-    yearRange: String
-    semesters: [CalendarSemester]
+    yearRange: String!
+    semesters: [CalendarSemester!]!
   }
 
   type CalendarSemester {
-    semester: String,
-    events: [CalendarEvent]
+    semester: String!,
+    events: [CalendarEvent!]!
   }
 
   type CalendarEvent {
-    title: String,
+    title: String!,
     date: String
   }
 
