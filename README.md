@@ -18,3 +18,10 @@ How easy you ask?
 Simple, Hit this Button
 
 [![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/pranaygp/uiuc-graphql)
+
+
+## API Keys
+
+### CUMTD
+
+1. Visit [https://developer.cumtd.com/](https://developer.cumtd.com/)
