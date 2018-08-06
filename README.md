@@ -1,8 +1,8 @@
 # UIUC graphql
 
-The codebase for [http://uiuc.aztec.website](http://uiuc.aztec.website), a graphql API for all UIUC information.
+The codebase for [http://uiuc.now.sh](http://uiuc.now.sh), a graphql API for all UIUC information.
 
-_To explore the API, visit [http://uiuc.aztec.website](http://uiuc.aztec.website) for the graphiql interface. More information at [http://graphql.org/](http://graphql.org/)_
+_To explore the API, visit [http://uiuc.now.sh](http://uiuc.now.sh) for the graphiql interface. More information at [http://graphql.org/](http://graphql.org/)_
 
 ## How do I set this up locally?
 

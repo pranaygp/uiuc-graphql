@@ -18,12 +18,12 @@
   },
   "homepage": "https://github.com/pranaygp/uiuc-graphql#readme",
   "dependencies": {
-    "express-graphql": "^0.6.1",
-    "graphql": "^0.8.2",
-    "lodash": "^4.17.2",
-    "micro": "^6.1.0",
-    "node-fetch": "^1.6.3",
-    "osmosis": "^1.1.2"
+    "express-graphql": "0.6.1",
+    "graphql": "0.8.2",
+    "lodash": "4.17.2",
+    "micro": "9.3.2",
+    "node-fetch": "1.6.3",
+    "osmosis": "1.1.2"
   },
   "devDependencies": {
     "babel-jest": "^17.0.2",
