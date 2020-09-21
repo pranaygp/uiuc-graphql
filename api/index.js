@@ -1,5 +1,5 @@
 const { buildSchema } = require("graphql");
-const graphqlHTTP = require("express-graphql");
+const { graphqlHTTP } = require("express-graphql");
 
 const Dining = require("../resources/dining");
 const Laundry = require("../resources/laundry");
