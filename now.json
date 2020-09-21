@@ -1,7 +1,0 @@
-{
-  "type": "docker",
-  "alias": ["uiuc.now.sh", "uiuc.aztec.website"],
-  "features": {
-    "cloud": "v2"
-  }
-}

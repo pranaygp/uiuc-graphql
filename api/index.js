@@ -1,12 +1,11 @@
-const { buildSchema } = require('graphql')
-const graphqlHTTP = require('express-graphql')
+const { buildSchema } = require("graphql");
+const graphqlHTTP = require("express-graphql");
 
-const Dining = require('./resources/dining')
-const Laundry = require('./resources/laundry')
-const EWS = require('./resources/ews')
-const FreeFood = require('./resources/free_food')
-const Calendar = require('./resources/calendar')
-
+const Dining = require("../resources/dining");
+const Laundry = require("../resources/laundry");
+const EWS = require("../resources/ews");
+const FreeFood = require("../resources/free_food");
+const Calendar = require("../resources/calendar");
 
 var schema = buildSchema(`
   type Query {
@@ -98,18 +97,17 @@ var schema = buildSchema(`
 
 `);
 
-var rootValue = { 
-  ping: () => 'pong'
-  , diningHall: async ({ hall }) => JSON.stringify(await Dining.todaysMenu(hall)) // not currently working
-  , laundry: Laundry
-  , ews: EWS
-  , freeFood: FreeFood
-  , calendar: Calendar 
+var rootValue = {
+  ping: () => "pong",
+  diningHall: async ({ hall }) => JSON.stringify(await Dining.todaysMenu(hall)), // not currently working
+  laundry: Laundry,
+  ews: EWS,
+  freeFood: FreeFood,
+  calendar: Calendar,
 };
 
-
 module.exports = graphqlHTTP({
-  schema
-  ,rootValue
-  ,graphiql: true
+  schema,
+  rootValue,
+  graphiql: true,
 });
