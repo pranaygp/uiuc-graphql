@@ -20,7 +20,7 @@
   "dependencies": {
     "express-graphql": "^0.11.0",
     "graphql": "^15.3.0",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "node-fetch": "^2.6.1",
     "osmosis": "^1.1.10"
   },
